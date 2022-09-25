@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Profil Düzenleme {% endblock %} 
+
+{% block content %}
+<section>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="container mt-3">
+        <h1> Profil Düzenleme</h1>
+        <div class="card">
+            <div class="card-body">
+            
+            
+                <b>İsim:</b> &nbsp;  {{user.first_name|title}}
+                <br>
+                <br>
+                <b>Soyad:</b> &nbsp; {{user.last_name|title}}
+                <br>
+                <br>
+                <b>Email:</b> &nbsp; {{user.email}}
+                <br>
+                <br>
+                <a type="" class="btnkayit btn btn-success me-2" href="{% url 'change_password' %}" name="">Şifre değiştir</a>
+                <br>
+                <br>
+              
+  
+            </div>
+        </div>
+    </div>
+  
+    <div class="container mt-2 d-flex flex-row-reverse">
+      <a type="submit" class="btnkayit btn btn-success me-2" href="{% url 'editprofileuser'  %}" name="submit">Düzenle</a>
+    </div>
+  
+  </form>
+</section>
+  
+
+
+{% endblock  %}

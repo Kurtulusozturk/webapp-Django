@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Makale Ekle {% endblock %} 
+
+
+{% block content %}
+<form action="" enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+
+<div class="container mt-2 ">
+    <h1>Makale Ekle</h1>
+    <div class="card">
+      <div class="card-body">
+        <div>
+          <label class="required" for="id_baslik">Başlık:</label>
+          <input class="form-control d-flex flex-row" name="baslik" id="baslik"type="text" placeholder="Başlık"> 
+        </div>
+        <p class="file-upload mt-2">
+          Yüklenecek Makale:
+          <input type="file" name="makale" accept="application/pdf" id="makale">
+        </p>
+      </div>
+    </div>
+</div>
+  <div class="container mt-2 d-flex flex-row-reverse">
+    {% comment %} <button type="button" class="btnkayit btn btn-success ">Kontrol Et</button> {% endcomment %}
+    <button type="submit" class="btnkayit btn btn-success me-2" id="submit" name="submit" value="submit">Kaydet</button>
+  </div>
+</form>
+  {% endblock  %}

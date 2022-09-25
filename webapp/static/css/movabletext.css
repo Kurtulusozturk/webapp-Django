@@ -1,0 +1,28 @@
+.ml10 {
+  
+  position: relative;
+  font-weight: 900;
+  font-size: 2em;
+  color: white;
+}
+
+.ml10 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.5em;
+  margin-top: 0.0em;
+  padding-right: 0.05em;
+  padding-bottom: 0.0em;
+  overflow: hidden;
+  background-color: rgb(255, 0, 0);
+}
+
+.ml10 .letter {
+  display: inline-block;
+  line-height: 1em;
+  transform-origin: 0 0;
+}
+.letters{
+  border: 5em;
+  border-color: black;
+}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Yayımlarım {% endblock %} 
+
+
+{% block content %}
+
+<form action="" method="POST">
+  {% csrf_token %}
+<div class="container mt-2 ">
+    <h1>Makale Düzenle</h1>
+    <div class="card">
+      <div class="card-body">
+        <div>
+          <label class="required" for="id_baslik" >Başlık: </label>
+          <input class="form-control d-flex flex-row" type="text" placeholder="" name="baslik" value="{{article.baslik}}">  
+        </div>
+        <p class="file-upload mt-2">
+          Mevcut Yüklü Makale: 
+          <a href="{% get_media_prefix %}{{article.makale}}">{{article.makale}}</a>
+          <br>
+          Mevcut Yerine Yüklenecek Makale:
+          <input type="file" name="makale" id="id_makale">
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-2 d-flex flex-row-reverse">
+    <a type="button" class=" btn btn-danger" href="delete">Sil</a>
+    <button type="submit" href="" name="submit" class="btnkayit btn btn-success me-2" value="submit" >Kaydet</button>
+  </div>
+</form>
+  {% endblock  %}

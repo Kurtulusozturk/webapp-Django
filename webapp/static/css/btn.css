@@ -1,0 +1,27 @@
+.btncardg{
+    color: rgb(68, 233, 68);
+    background-color: white;
+    border-color: rgb(8, 190, 8);
+    margin-right: 5px;
+}
+.btncard:hover{
+    color: rgb(0, 175, 0);
+    background-color: rgb(185, 231, 193);
+    border-color: rgb(8, 190, 8);
+    margin-right: 5px;
+}
+.btncard{
+    background-color: rgb(68, 233, 68);
+    border-color: rgb(212, 211, 211);
+    margin-right: 50px;
+}
+.btncard:hover{
+    color: rgb(68, 233, 68);
+    background-color: white;
+    border-color: rgb(68, 233, 68);
+}
+.btncard:focus{
+  color: rgb(68, 233, 68);
+  background-color: white;
+  border-color: rgb(68, 233, 68);
+}

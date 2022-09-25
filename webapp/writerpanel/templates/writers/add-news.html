@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Haber Ekle {% endblock %} 
+
+
+{% block content %}
+{% comment %} {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %} {% endcomment %}
+<form action="" enctype="multipart/form-data" method="POST">
+  {% csrf_token %}
+    <div class="container mt-2 ">
+     <h1>Haber Ekle</h1>
+     {{form.media}}
+      <div class="card">
+        <div class="card-body">
+          <p class="file-upload">
+            Resim:
+            <input type="file" name="resim" accept="image/*" id="resim">
+          </p>
+          <div>
+            <label class="required" for="id_baslik">Başlık:</label>
+            <input class="form-control d-flex flex-row" name="baslik" id="baslik"type="text" placeholder="Başlık">  
+          </div>
+            <h2 class="mt-2"></h2>
+            İçerik:
+            <br>
+            {{form.icerik}}
+            {% comment %} {{form.yazar}} {% endcomment %}
+        </div>
+      </div> 
+
+    </div>
+    <div class="container mt-2 d-flex flex-row-reverse">
+      {% comment %} <button type="button" class="btnkayit btn btn-success ">Kontrol Et</button> {% endcomment %}
+      <button type="submit" class="btnkayit btn btn-success me-2" id="submit" name="submit" value="submit">Kaydet</button>
+    </div>
+  </form>
+
+
+    {% endblock  %}

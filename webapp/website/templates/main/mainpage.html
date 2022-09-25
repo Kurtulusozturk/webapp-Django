@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Ana sayfa {% endblock %} 
+
+
+{% block content %}
+<section>
+<div class="container-fluid m-0 p-0 mt-1" style="height: 400px;">
+    <div class="card bg-light text-white" style="height: 100%;">
+        <img src="{% static 'img/background.jpg' %}" class="card-img" alt="..."  style="height: 100%;" width="100%">
+            <div class="card-img-overlay " style="color: rgb(61,137,54); ">
+            <h1 class="card-title d-flex justify-content-center">SEISMOCODE</h1>
+            <p class="card-text d-flex justify-content-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. At, fugiat consequatur rerum minima ullam quibusdam! Quam voluptate beatae quod veritatis.</p>
+            </div>
+    </div>
+</div>
+</section>
+
+<section>
+    <div class="container-fluid my-4">
+        {% comment %} <h1>Son 2 Deprem Haberleri</h1> {% endcomment %}
+        <div class="row">
+            {% for yazi in yazilar %}
+            <div class="col-12 col-lg-4 d-flex justify-content-center">
+                <div class="card" style="width: 35rem;">
+                    <img class="card-img-top p-3" src="{{yazi.resim.url}}" alt="Card image cap" style="height: 15rem;">
+                    <div class="card-body">
+                    <h3 class="card-title">{{yazi.baslik|striptags|title}}</h3>
+                    <p class="card-text" style="font-size:1.3rem;">{{yazi.icerik|truncatechars:140|safe}} </p>
+                    <div class="d-flex flex-row-reverse">
+                        <p class="text-muted d-flex flex-row-reverse">{{yazi.olusturulma_tarihi|date:"d/m/Y"}}</p>&nbsp•&nbsp
+                        <p class="text-muted d-flex flex-row-reverse">{{yazi.yazar.get_full_name}}</p>
+                    </div>
+
+                    <a href="{% url 'news-details' yazi.slug %}" class="btncard btn btn-primary">Detay</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+       </div>
+    </div>
+                        {% comment %} <img src="" class="img-fluid rounded-start mt-4 w-100 h-75" alt="..."> {% endcomment %}
+
+                        {% comment %} <h3 class="card-title">{{yazi.baslik|striptags}}</h3>
+                        <p class="card-text" style="font-size:1.3rem;">{{yazi.icerik|truncatechars:140|safe}} </p>
+                        <a href="#" class="btncard btn btn-primary">Detay</a> {% endcomment %}
+
+
+
+
+
+</section>
+
+{% endblock  %}

@@ -1,0 +1,15 @@
+permissons
+
+writer
+içerik listeleme stabil görüntü vermiyor
+yazı getireme id ye göre çalışmıyor id şuanda 1 olarak çalışıyor oraya açık olan hesap id si lazım modelde default 1 olduğu için çalışıyor views de de aynı şekilde user id atamak gerekiyorr
+güncelleme tarihini güncellemiyor
+pdf güncelleme çalışmıyor
+
+makale:
+makaleler kısımında show_pdf kısmı filepath
+
+
+kalan 
+yorum,like,
+ ve son depremler kısmı

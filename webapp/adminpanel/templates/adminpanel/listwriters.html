@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Yazarlar {% endblock %} 
+{% block content %}
+<div class="container mt-3">
+  <h1>Yazarlar</h1>
+  <div class="col-12">
+  <div class="card">
+      <div class="card-body">
+        <div class="table-responsive-sm">
+          <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Adı</th>
+                  <th scope="col">Soyadı</th>
+                  <th scope="col">Mail</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                {% for writer in  listwriters%}
+                  <tr>
+                    <td><a href="{% url 'detail-writers' writer.id%}">{{writer.first_name}}</a></td>
+                    <td>{{writer.last_name}}</td>
+                    <td>{{writer.email}}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+  </div>
+
+</div>
+
+
+
+{% endblock  %}

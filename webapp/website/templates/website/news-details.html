@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{post.baslik}}{% endblock %} 
+
+{% block content %}
+<section>
+    <div class="container">
+      <div class="row">
+      
+        <div class="col-1"></div>
+        <div class="col-10 my-0">
+          <div class="card" >
+            <img src="{{post.resim.url}}" class="card-img-top my-2" alt="..." style="max-width: 700px; margin:auto;">
+            <div class="card-body" >
+
+              <h5 class="card-title">{{post.baslik|title}}</h5>
+              <p class="card-text">{{post.icerik|safe}}</p>
+              <div class="d-flex flex-row-reverse">
+                <p class="text-muted">{{post.olusturulma_tarihi|date:"d/m/Y"}}</p>&nbsp•&nbsp
+                <p class="text-muted d-flex flex-row-reverse">{{post.yazar.get_full_name}}</p>
+              </div>
+              {% comment %} <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i> {% endcomment %}
+              <!-- <i onclick="myFunctionn(this)" class="fa fa-thumbs-down"></i> --><!-- <i class='fas fa-thumbs-down' style='font-size:36px'></i><i class='far fa-thumbs-up' style='font-size:36px'></i><i class='far fa-thumbs-down' style='font-size:36px'></i><i class='fas fa-thumbs-up' style='font-size:36px' onclick="myFunction(this)"></i> -->
+              <br>
+
+              {% comment %} <div class="row d-flex justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                  <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+                    <div class="card-body p-4">
+                      <div class="form-outline mb-4">
+                        <input type="text" id="addANote" class="form-control" placeholder="Yorum yaz..." />
+                        <label class="form-label" for="addANote">paylaş butonu</label>
+                      </div>
+
+                      <div class="card mb-4">
+                        <div class="card-body">
+                          <p>Yorum</p>
+
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-row align-items-center">
+                              <p class="small mb-0 ms-2">İsim soyisim</p>
+                            </div>
+                            </div>
+                          </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div> {% endcomment %}
+            </div>
+
+          </div>
+        </div>
+      <div class="col-1"></div>
+      </div>
+    </div>
+</section>
+
+
+
+{% endblock  %}

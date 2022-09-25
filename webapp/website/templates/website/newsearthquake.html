@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %}Deprem Haberleri{% endblock %} 
+
+{% block content %}
+
+
+<section>
+    <div class="container-fluid p-0 m-0">
+        <h1 class="ml10">
+            <span class="text-wrapper d-flex justify-content-center ">
+              <span class="letters">Son Dakika</span>
+            </span>
+            <span class="text-wrapper d-flex justify-content-center ">
+              <span class="letters">Isparta (Merkez)</span>
+            </span>
+            <span class="text-wrapper d-flex justify-content-center ">
+              <span class="letters">Deprem: 4.1 </span>
+            </span>
+          </h1>
+    </div>
+    {% comment %} <div class="lastminute container-fluid p-0 m-0 ">
+        <div class="row w-100 p-0 m-0">
+            <div class="col-4 p-0 m-0">
+                <img src="{% static 'img/3473620_620x410.jpg' %}" alt="" class="w-100">
+            </div>
+            <div class="col-4 p-0 m-0">
+                <img src="{% static 'img/3473620_620x410.jpg' %}" alt="" class="w-100">
+            </div>
+            <div class="col-4 p-0 m-0">
+                <img src="{% static 'img/3473620_620x410.jpg' %}" alt="" class="w-100">
+            </div>
+        </div>
+        <label for="" class="container-fluid d-flex justify-content-center py-2" style="background-color: rgb(234,41,36); color:white; font-size: large;"><h1>Son Deprem</h1></label>
+        <div class="row w-100 p-0 m-0">
+            <div class="col-4 p-0 m-0">
+                <img src="{% static 'img/3473620_620x410.jpg' %}" alt="" class="w-100">
+            </div>
+            <div class="col-4 p-0 m-0">
+                <img src="{% static 'img/3473620_620x410.jpg' %}" alt="" class="w-100">
+            </div>
+            <div class="col-4 p-0 m-0">
+                <img src="{% static 'img/3473620_620x410.jpg' %}" alt="" class="w-100">
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+    <div class="newsearthquake container-fluid ">
+        <div class="row">
+            <div class="col-12 col-lg-6 mx-auto "style="max-width: 1000px; ">
+                {% for post in  object_list %}
+                <div class="card my-2" >
+                    <img src="{{post.resim.url}}" class="card-img-top p-3 mx-auto w-50" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{post.baslik|striptags|title}}</h5>
+                        <p class="card-text">{{post.icerik|truncatechars:300|safe}}</p>
+                        <div class="d-flex flex-row-reverse">
+                            <p class="text-muted">{{post.olusturulma_tarihi|date:"d/m/Y"}}</p>&nbsp•&nbsp
+                            <p class="text-muted d-flex flex-row-reverse">{{post.yazar.get_full_name}}</p>
+                        </div>
+                        <a href="{% url 'news-details' post.slug %}" class="btncard btn btn-primary">Detay</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+ 
+    <div class="container d-flex justify-content-center">
+
+        <div class="row">
+            <ul class="pagination ">
+                {% if page_obj.has_previous %}
+                    <li class="me-2 page-item">
+                        <a href="?page=1" class="page-link">
+                            ilk sayfa
+                        </a>
+                    </li>
+                    <li class="me-2 page-item">
+                        <a href="?page={{page_obj.previous_page_number}}" class="page-link">
+                            &laquo; önceki sayfa
+                        </a>
+                    </li>
+                {% endif %}
+                {%if page_obj.has_next%}
+                    <li class="me-2 page-item">
+                        <a href="?page={{page_obj.next_page_number}}" class="page-link">
+                            Sonraki sayfa&raquo;
+                        </a>
+                    </li>
+                    <li class="me-2 page-item">
+                        <a href="?page={{page_obj.paginator.num_pages}}" class="page-link">
+                            Son sayfa
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div>
+            Sayfa {{page_obj.number}} /{{page_obj.paginator.num_pages}}
+        </div> 
+    </div> 
+
+
+</section> 
+
+{% endblock %}
+

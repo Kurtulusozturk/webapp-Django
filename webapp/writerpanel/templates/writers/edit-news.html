@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Yayımlarım {% endblock %} 
+
+
+{% block content %}
+<form action="" enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+<div class="container mt-2 ">
+    <h1>Haber Düzenle</h1>
+    <div class="card">
+      <div class="card-body">
+        <p class="file-upload">
+         
+          {% comment %} <a href="{% get_media_prefix %}{{post.resim}}">{{post.resim}}</a> {% endcomment %}
+          <div class="container d-inline-flex">
+            Güncel Resim: 
+            <img src="{% get_media_prefix %}{{post.resim}}" class="ms-3"alt="Seismocode" width="50%" height="50%"> 
+          </div>
+          <br>
+          <br>
+          Yüklenecek Resim:
+          <br>
+          <input type="file" name="resim" accept="image/*" value="{{post.resim}}" id="id_resim">
+          <br>
+        </p>
+        <div>
+          <label class="required" for="id_baslik">Başlık:</label>
+          <input class="form-control d-flex flex-row" type="text" placeholder="" name="baslik" id="baslik" value="{{post.baslik}}">  
+          <br>
+        </div>
+          <h2 class="mt-2"></h2>
+          İçerik:
+          <br>
+          {{form.media}}
+          {{ icerik.value }}
+          {{form.icerik}}
+      </div>
+    </div>
+  </div>
+  <div class="container mt-2 d-flex flex-row-reverse">
+    <a type="button" class=" btn btn-danger" href="delete">Sil</a>
+    <button type="submit" href="" name="submit" class="btnkayit btn btn-success me-2" value="submit" >Kaydet</button>
+  </div> 
+</form>
+{% endblock  %}

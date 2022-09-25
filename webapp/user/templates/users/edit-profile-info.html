@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Profil Düzenleme {% endblock %} 
+
+{% block content %}
+<section>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <div class="container mt-3">
+          <h1> Profil Düzenleme</h1>
+          <div class="card">
+              <div class="card-body">
+              
+              
+                <b>İsim:</b> &nbsp; 
+                <input type="text" class="d-inline-flex form-control w-50" id="first_name" name="first_name" value="{{user.first_name}}" placeholder="İsim">
+                <br>
+                <br>
+                <b>Soyad:</b> &nbsp; 
+                <input type="text" class="d-inline-flex form-control w-50" id="last_name" name="last_name" value="{{user.last_name}}" placeholder="Soyad">
+                <br>
+                <br>
+                <b>Email:</b> &nbsp; 
+                <input type="email" class="d-inline-flex form-control w-50" id="email" name="email" value="{{user.email}}" placeholder="Email">
+                <br>
+                <br>    
+              </div>
+          </div>
+      </div>
+    
+      <div class="container mt-2 d-flex flex-row-reverse">
+        <button type="submit" class="btnkayit btn btn-success me-2" name="submit">Kaydet</button>
+      </div>
+    
+    </form>
+</section>
+
+
+{% endblock  %}

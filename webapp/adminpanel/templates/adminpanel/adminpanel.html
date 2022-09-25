@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Yönetici Paneli {% endblock %} 
+
+
+{% block content %}
+<div class="container mt-3">
+    <h1>HOŞGELDİNİZ</h1>
+    <div class="card">
+        <div class="card-body">
+            <a class="btnkayit btn btn-success  " href="{% url 'listwriters' %}" > Yazarlar listesi</a> ----> İstatistikler
+            <br>
+            <a class="btnkayit btn btn-success mt-2" href="{% url 'listreaders' %}" > Kullanıcılar listesi</a> ----> İstatistikler
+            <br>
+            <a class="btnkayit btn btn-success mt-2" href="{% url 'create-writer' %}" > Yazar&Kullanıcı ekle</a>
+        </div>
+    </div>
+</div>
+{% endblock  %}

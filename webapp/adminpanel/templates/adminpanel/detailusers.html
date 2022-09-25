@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Yazar Detayları {% endblock %} 
+
+{% block content %}
+<form action="" method="POST">
+  {% csrf_token %}
+  <div class="container mt-3">
+      <h1>Detay</h1>
+      <div class="card">
+          <div class="card-body">
+          
+          
+              <b>İsim:</b> &nbsp; {{writer.first_name}}
+              <br>
+              <br>
+              <b>Soyad:</b> &nbsp; {{writer.last_name}}
+              <br>
+              <br>
+              <b>Email:</b> &nbsp; {{writer.email}}
+              <br>
+              <br>
+              <b>Kullanıcı Aktifliği:</b> &nbsp;
+              {% comment %} {{writer.is_active}} {% endcomment %}
+              {% if writer.is_active %} 
+              Aktif
+              <i class="bi bi-check-square"></i>
+              {% else %}   
+              Pasif
+              {% endif %} 
+              <br>
+              <br>
+              <b>Kullanıcı Rolü:</b> &nbsp; {{writer.roles}}
+              <br>
+              (Kullanıcı=1, Yazar=2)
+              <br>
+              <br>
+              <b>Kayıt olma tarihi:</b> &nbsp; {{writer.date_joined}}
+              <br>
+              <br>
+              <b>Son aktif olduğu tarih:</b> &nbsp; {{writer.last_login}}
+              <br>
+              <br>
+            
+
+          </div>
+      </div>
+  </div>
+
+  <div class="container mt-2 d-flex flex-row-reverse">
+    <a type="submit" class="btnkayit btn btn-success me-2" href="edit" name="submit">Düzenle</a>
+  </div>
+
+</form>
+
+{% endblock  %}

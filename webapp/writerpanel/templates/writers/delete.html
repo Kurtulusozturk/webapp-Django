@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Makale Ekle {% endblock %} 
+
+
+{% block content %}
+
+<div class="container mt-5 d-flex justify-content-center ">
+    
+<form method="post">{% csrf_token %}
+    <div class="card">
+        <div class="card-body">
+            <p>Silinsin mi "{{ object }}"?</p>
+        </div> 
+    </div> 
+    <div class="d-flex justify-content-end mt-2 ">
+        <a type="" name="url" class="btnkayit btn btn-success me-2"  href="{% url 'my_writings' %}">Vazgeç</a>
+        <input type="submit" class="btn btn-danger me-2"  value="Sil">
+    </div> 
+</form>
+</div> 
+    {% endblock  %}
